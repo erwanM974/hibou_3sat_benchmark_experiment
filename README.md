@@ -62,10 +62,10 @@ Points in <span style="color:red">*red*</span> are unsatisfiable problems while 
 
 With both benchmarks we can observe that Hibou systematically returns the correct result whether the problem is satisfiable or unsatisfiable.
 
-<img src="./README_images/3sat_custom.png" alt="3SAT custom" width="400">
+<img src="./README_images/3sat_custom.png" alt="3SAT custom" width="650">
  
 
-<img src="./README_images/3sat_uf20.png" alt="3SAT uf20" width="400">
+<img src="./README_images/3sat_uf20.png" alt="3SAT uf20" width="650">
 
 
 With the custom benchmark, which contains relatively small problems, we can observe that Hibou remains relatively competitive.
