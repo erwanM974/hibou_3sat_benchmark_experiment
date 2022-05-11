@@ -60,9 +60,7 @@ make_plot_diagram("./satbenchmark_hibou/sat_membership_experiment_uf20.csv",
 
 uf20 <- read_sat_report("./satbenchmark_hibou/sat_membership_experiment_uf20.csv")
 
-mean(uf20$hibou_time)
-mean(uf20$varisat_time)
-max(uf20$hibou_time)
+
 summary(uf20$varisat_time)
 summary(uf20$hibou_time)
 sd(uf20$varisat_time)

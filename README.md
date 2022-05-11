@@ -54,6 +54,11 @@ For each benchmark, we generate a ".csv" file containing the experimental data. 
 
 ## Results
 
+In the following we present results obtained running the experiment on an i5-8250U processor and 32Go of RAM.
+We have used HIBOU version 0.7.4 and Varisat version 0.2.1.
+The raw data that we obtained is given in the "sat_membership_experiment_mahe.csv" and "sat_membership_experiment_uf20.csv" files respectively for the custom and uf20 benchmark.
+
+
 With the "compare_varisat_hibou.r" R script we plot the data contained in the previously generated ".csv" files.
 In the diagrams below, each point corresponds to a given 3-SAT problem,
 with its position corresponding to the time required to solve it (by Varisat on the *x* axis and Hibou on the *y* axis).
@@ -62,10 +67,10 @@ Points in <span style="color:red">*red*</span> are unsatisfiable problems while 
 
 With both benchmarks we can observe that Hibou systematically returns the correct result whether the problem is satisfiable or unsatisfiable.
 
-<img src="./README_images/3sat_custom.png" alt="3SAT custom" width="650">
+<img src="./README_images/custom_3sat_074_rw.png" alt="3SAT custom" width="650">
  
 
-<img src="./README_images/3sat_uf20.png" alt="3SAT uf20" width="650">
+<img src="./README_images/uf20_3sat_074_rw.png" alt="3SAT uf20" width="650">
 
 
 With the custom benchmark, which contains relatively small problems, we can observe that Hibou remains relatively competitive.
@@ -74,10 +79,13 @@ However, with UF20, which contains bigger problems, the performance gap widens c
 
 It is interesting to note that, although the tool is not designed to solve such problems,
 with some optimisations Hibou can pass benchmarks such as SATLIB's UF-20 in reasonable time.
-The average computation time in the 1000 instances from UF-20 is 0.015s for Varisat and 0.99s for Hibou.
-However, on some specific problems, Hibou takes much more time than Varisat.
-The standard deviation with Hibou is much higher (0.907 and 0.001).
-However, given the generality and complexity of the problem which our tool solves (multi-trace membership against interactions) those results are still promising w.r.t. the performances of our tool.
+Given the generality and complexity of the problem which our tool solves
+(multi-trace membership against interactions) those results are still promising w.r.t. its performances.
+
+Detailed statistics are given below:
+
+<img src="./README_images/uf20_stats.png" alt="3SAT uf20" width="550">
+
 
 
 

@@ -27,7 +27,7 @@ def is_sat_varisat(parent_path,name,num_tries):
         varisat_proc.wait()
         tries.append( time.time() - t_start )
         outwrap = io.TextIOWrapper(varisat_proc.stdout, encoding="utf-8")
-    t_total = statistics.mean(tries)
+    t_total = statistics.median(tries)
     is_sat = False
     for line in outwrap:
         if "ERROR" in line:
@@ -60,7 +60,7 @@ def is_sat_via_membership(parent_path, name,num_tries):
         hibou_proc.wait()
         tries.append(time.time() - t_start)
         outwrap = io.TextIOWrapper(hibou_proc.stdout, encoding="utf-8")
-    t_total = statistics.mean(tries)
+    t_total = statistics.median(tries)
     #
     for line in outwrap:
         if "WeakPass" in line:

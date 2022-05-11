@@ -33,12 +33,12 @@ def try_mkdir(dir_path):
 def benchmarks_3sat():
     generate_custom_problems(gen_custom_path)
     make_membership_for_problems(gen_custom_path, gen_custom_path)
-    experiment(gen_custom_path, "sat_membership_experiment_mahe", 5)
+    experiment(gen_custom_path, "exp_3sat_mahe", 5)
 
     empty_directory(gen_u20_path)
     copy_tree(prob_uf20_path, gen_u20_path)
     make_membership_for_problems(gen_u20_path, gen_u20_path)
-    experiment(gen_u20_path, "sat_membership_experiment_uf20", 5)
+    experiment(gen_u20_path, "exp_3sat_uf20", 5)
 
 if __name__ == '__main__':
     try_mkdir("./temp/")
