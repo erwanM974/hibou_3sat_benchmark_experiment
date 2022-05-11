@@ -67,8 +67,11 @@ Points in <span style="color:red">*red*</span> are unsatisfiable problems while 
 
 With both benchmarks we can observe that Hibou systematically returns the correct result whether the problem is satisfiable or unsatisfiable.
 
+Below are represented the results for the custom benchmark.
+
 <img src="./README_images/custom_3sat_074_rw.png" alt="3SAT custom" width="650">
  
+And the second diagram (below) shows the results on UF20.
 
 <img src="./README_images/uf20_3sat_074_rw.png" alt="3SAT uf20" width="650">
 
@@ -84,7 +87,7 @@ Given the generality and complexity of the problem which our tool solves
 
 Detailed statistics are given below:
 
-<img src="./README_images/uf20_stats.png" alt="3SAT uf20" width="550">
+<img src="./README_images/uf20_stats.png" alt="3SAT uf20" width="700">
 
 
 
