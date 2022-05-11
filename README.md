@@ -52,6 +52,8 @@ For each benchmark, we generate a ".csv" file containing the experimental data. 
 - the output of hibou i.e. either *WeakPass* (True) or *Fail* (False)
 - the time taken by hibou (in seconds)
 
+In order to smooth the results, we retain, for each run, the median of 5 tries, as the time required for the analysis.
+
 ## Results
 
 In the following we present results obtained running the experiment on an i5-8250U processor and 32Go of RAM.
