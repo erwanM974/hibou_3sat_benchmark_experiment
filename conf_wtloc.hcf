@@ -1,0 +1,6 @@
+@analyze_option{
+    strategy = HCS;
+    analysis_kind = hide;
+    local_analysis = true;
+    goal = WeakPass
+}

@@ -14,13 +14,12 @@
 import os
 from distutils.dir_util import copy_tree
 
-from sat3_commons import empty_directory
-from sat3_generator import generate_custom_problems
-from sat3_to_membership import make_membership_for_problems
-from sat3_calls import experiment
+from implem.commons import empty_directory
+from implem.sat3_generator import generate_custom_problems
+from implem.sat3_to_membership import make_membership_for_problems
+from implem.calls import experiment
 
 prob_uf20_path = "./uf20/"
-gen_custom_path = "./gen_custom/"
 gen_u20_path = "./gen_uf20/"
 
 
@@ -30,20 +29,29 @@ def try_mkdir(dir_path):
     except FileExistsError:
         pass
 
-def benchmarks_3sat():
-    generate_custom_problems(gen_custom_path)
+def generate_translate_verify(custom_name,max_iteration_genrate,num_tries_generate,variables,clauses,num_tries_analyze):
+    gen_custom_path = "./gen_{}/".format(custom_name)
+    try_mkdir(gen_custom_path)
+    generate_custom_problems(custom_name,max_iteration_genrate,num_tries_generate,variables,clauses)
     make_membership_for_problems(gen_custom_path, gen_custom_path)
-    experiment(gen_custom_path, "exp_3sat_mahe", 5)
+    experiment(gen_custom_path, "exp_3sat_{}".format(custom_name), num_tries_analyze)
 
+def translate_verify_uf20(num_tries_analyze):
+    try_mkdir(gen_u20_path)
     empty_directory(gen_u20_path)
     copy_tree(prob_uf20_path, gen_u20_path)
     make_membership_for_problems(gen_u20_path, gen_u20_path)
-    experiment(gen_u20_path, "exp_3sat_uf20", 5)
+    experiment(gen_u20_path, "exp_3sat_uf20", num_tries_analyze)
+
+
+def benchmarks_3sat():
+    num_tries = 5
+    generate_translate_verify("custom_small",300,4,[3,10],[4,50],num_tries)
+    generate_translate_verify("custom_big",300,4,[20,27],[40,100],num_tries)
+    translate_verify_uf20(num_tries)
+
 
 if __name__ == '__main__':
     try_mkdir("./temp/")
-    try_mkdir(gen_custom_path)
-    try_mkdir(gen_u20_path)
-
-    benchmarks_3sat()
-
+    #benchmarks_3sat()
+    experiment(gen_u20_path, "exp_3sat_uf20", 5)
